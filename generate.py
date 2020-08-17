@@ -1,5 +1,6 @@
 import datetime
 import csv
+import random
 
 startDate = datetime.datetime(2020, 1, 1)
 
@@ -39,6 +40,7 @@ timetable = {
 # currDay = currDate.day
 
 while int(currDate.year) <= 2020:
+    random.seed()
     filename = "data/" + f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + ".csv"
     # print(filename)
     # print(f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" + f"{currDate.day:02d}" + "  " + f"{currDate.hour:02d}" + ":" + f"{currDate.minute:02d}")
@@ -46,9 +48,17 @@ while int(currDate.year) <= 2020:
     
     with open(filename, 'a', newline='') as csvfile:
         csvw = csv.writer(csvfile)
-        row = [f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + " " + stamp]
+        row = [f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + "-" + stamp]
         for i in range(5):
-            row.append(timetable[stamp][i])
+            check = random.randint(0,1)
+            val = 0
+            if check:
+                check2 = random.randint(0,1)
+                if check2:
+                    val = val + random.randint(1, 10)
+                else:
+                    val = val - random.randint(1, 10)
+            row.append(timetable[stamp][i] + val)
 
         csvw.writerow(row)
     
