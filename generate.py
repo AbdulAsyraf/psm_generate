@@ -46,7 +46,7 @@ while int(currDate.year) <= 2020:
     
     with open(filename, 'a', newline='') as csvfile:
         csvw = csv.writer(csvfile)
-        row = [stamp]
+        row = [f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + " " + stamp]
         for i in range(5):
             row.append(timetable[stamp][i])
 
