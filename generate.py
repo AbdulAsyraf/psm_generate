@@ -7,6 +7,7 @@ startDate = datetime.datetime(2020, 1, 1)
 currDate = startDate
 
 #   bedroom, bathroom, living room, dining room, kitchen
+username = "user1"
 
 timetable = {
     '00:00':[80, 40, 50, 20, 20],    #sleep
@@ -41,7 +42,7 @@ timetable = {
 
 while int(currDate.year) <= 2020:
     random.seed()
-    filename = "data/" + f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + ".csv"
+    filename = "data/" + username + "_" + f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" f"{currDate.day:02d}" + ".csv"
     # print(filename)
     # print(f"{currDate.year:04d}" + "-" + f"{currDate.month:02d}" + "-" + f"{currDate.day:02d}" + "  " + f"{currDate.hour:02d}" + ":" + f"{currDate.minute:02d}")
     stamp = f"{currDate.hour:02d}" + ":" + f"{currDate.minute:02d}"
